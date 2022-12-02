@@ -3,16 +3,28 @@ import axios from "axios";
 
 const ProductCategory = () => {
   const [data, setdata] = useState([]);
+  const [filter , setfilter ] = useState(data);
 
   useEffect(() => {
     let apiCall = async () => {
       let apiData = await axios.get("https://fakestoreapi.com/products");
       let res = await apiData.data;
       setdata(res);
+      setfilter(res)
       console.log(res);
     };
     apiCall();
   }, []);
+
+
+  const typeFilter = (type)=>{
+    const filterResult = data.filter((val)=>{
+        return val.category === type
+
+    })
+    setfilter(filterResult)
+    
+  }
 
   return (
     <section className="product spad">
@@ -25,22 +37,22 @@ const ProductCategory = () => {
           </div>
           <div className="col-lg-8 col-md-8">
             <ul className="filter__controls">
-              <li className="active" data-filter="*">
+              <li className="active" data-filter="*" onClick={()=>setfilter(data)}>
                 All
               </li>
-              <li data-filter=".women">Women’s</li>
-              <li data-filter=".men">Men’s</li>
-              <li data-filter=".kid">Kid’s</li>
-              <li data-filter=".accessories">Accessories</li>
+              <li data-filter=".women" onClick={()=>typeFilter("women's clothing")}>Women’s</li>
+              <li data-filter=".men" onClick={()=>typeFilter("men's clothing")}>Men’s</li>
+              <li data-filter=".kid" onClick={()=>typeFilter("electronics")}>Electronics</li>
+              <li data-filter=".accessories" onClick={()=>typeFilter("jewelery")}>jewelery</li>
               <li data-filter=".cosmetic">Cosmetics</li>
             </ul>
           </div>
         </div>
         <div className="row property__gallery">
-        {data.map((val) => {
+        {filter.map((val) => {
           return (
             
-              <div className="col-lg-3 col-md-4 col-sm-6 mix women">
+              <div className="col-lg-3 col-md-4 col-sm-6 mix women" key={val.id}>
                 <div className="product__item">
                   <div
                     className="product__item__pic set-bg"
