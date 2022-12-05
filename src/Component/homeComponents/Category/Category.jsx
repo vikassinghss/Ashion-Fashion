@@ -1,11 +1,11 @@
 import React from "react";
 import { Categorytype } from "./Categorytype";
 
-import category1 from "../../img/categories/category-1.jpg";
-import category2 from "../../img/categories/category-2.jpg";
-import category3 from "../../img/categories/category-3.jpg";
-import category4 from "../../img/categories/category-4.jpg";
-import category5 from "../../img/categories/category-5.jpg";
+import category1 from "../../../img/categories/category-1.jpg";
+import category2 from "../../../img/categories/category-2.jpg";
+import category3 from "../../../img/categories/category-3.jpg";
+import category4 from "../../../img/categories/category-4.jpg";
+import category5 from "../../../img/categories/category-5.jpg";
 
 const Category = () => {
   return (
