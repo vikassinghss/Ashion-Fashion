@@ -1,6 +1,7 @@
 import React from "react";
 import banner1 from "../../../img/banner/banner-1.jpg";
 
+
 const Banner = () => {
   return (
     <>
@@ -10,7 +11,8 @@ const Banner = () => {
           backgroundImage: `url(${banner1})`,
         }}
       >
-        <div className="container">
+      
+        {/* <div className="container">
           <div className="row">
             <div className="col-xl-7 col-lg-8 m-auto">
               <div className="banner__slider owl-carousel">
@@ -37,8 +39,9 @@ const Banner = () => {
                 </div>
               </div>
             </div>
+           
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );
