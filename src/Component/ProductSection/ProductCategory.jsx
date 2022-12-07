@@ -53,8 +53,7 @@ const ProductCategory = () => {
                       <li>
                         <a
                           href="img/product/product-1.jpg"
-                          className="image-popup"
-                        >
+                          className="image-popup">
                           <span className="arrow_expand"></span>
                         </a>
                       </li>
