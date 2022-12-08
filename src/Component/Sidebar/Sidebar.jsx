@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import Pagination from "@mui/material/Pagination";
+// import Pagination from "@mui/material/Pagination";
 import SideBarItems from "./SideBarItems";
 import { ShopByPrice } from "../ShopByPrice/ShopByPrice";
 import ShopBySize from "../ShopBySize/ShopBySize";
 import ShopByColor from "../ShopByColor/ShopByColor";
+import Pagination from '../Pagination/Pagination';
+
 
 
 export const Sidebar = () => {
     const [data, setData] = useState([]);
     const [womdata, setWomData] = useState(data);
-    const [page , setPage] = useState();
+    // const [page , setPage] = useState();
+    const[showPerPage, setShowPerPage] = useState(4);
+    const [pagination, setPagination] = useState({
+      start:0,
+      end:showPerPage,
+    });
+
+    const onPaginationChange = (start, end) => {
+      setPagination({start:start, end:end});
+
+    };
      
 
   const filterItem = (categoryWomen) => {
@@ -38,23 +50,23 @@ export const Sidebar = () => {
     apiCall();
   }, []);
 
-  let clickHandel = async (e, v) => {
-    console.log(v);
-    let pageValue = v;
-    setPage(pageValue)
+  // let clickHandel = async (e, v) => {
+  //   console.log(v);
+  //   let pageValue = v;
+  //   setPage(pageValue)
     
 
-    let forPage = async ()=>{
-      let res = await axios.get( 
-        `https://fakestoreapi.com/products?limit=3&page=2`
-        );
-      let result = await res.data;
-      setData(result)
-      console.log(result);
-      console.log(pageValue);
-  }
-  forPage();
-  };
+  //   let forPage = async ()=>{
+  //     let res = await axios.get( 
+  //       `https://fakestoreapi.com/products?limit=3&page=2`
+  //       );
+  //     let result = await res.data;
+  //     setData(result)
+  //     console.log(result);
+  //     console.log(pageValue);
+  // }
+  // forPage();
+  // };
 
    return (
     <>
@@ -115,7 +127,7 @@ export const Sidebar = () => {
               </div>
                       <div className="col-lg-9 col-md-9">
                         <div className="row">
-                          {womdata.map((item) => {
+                          {womdata.slice(pagination.start, pagination.end).map((item) => {
                             return (
                               <SideBarItems 
                                 key={item.id}
@@ -127,15 +139,18 @@ export const Sidebar = () => {
                             );
                           })}
                         </div>
-                        {/* <Pagination/> */}
+                         <Pagination showPerPage={showPerPage}
+                         onPaginationChange = {onPaginationChange}
+                         total={womdata.length}
+                         />
           
-                        <Pagination 
+                        {/* <Pagination 
                           count={10} 
                           pagecount={page}
                           color="primary" 
                           onChange={clickHandel}
                           activeclassname={"active"}
-                        />
+                        /> */}
                       </div>
             </div>
          </div>

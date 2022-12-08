@@ -1,44 +1,49 @@
-import React, { useState, useEffect } from "react";
-import Pagination from "@mui/material/Pagination";
+import React, { useState,useEffect } from 'react'
 
-const Pagination = () => {
-    const [page , setPage] = useState();
+const Pagination = ({showPerPage, onPaginationChange, total}) => {
+  // console.log(showPerPage);
+  const[counter, setCounter] = useState(1);
 
-    useEffect(()=>{
-        let clickHandel = async (e, v) => {
-            console.log(v);
-            let pageValue = v;
-            setPage(pageValue)
-            
-        
-            let forPage = async ()=>{
-              let res = await axios.get( 
-                `https://fakestoreapi.com/products?limit=3&page=2`
-                );
-              let result = await res.data;
-              setData(result)
-              console.log(result);
-              console.log(pageValue);
-          }
-          forPage();
-          };
-    })
-  
+  useEffect(()=>{
+      // console.log("object");
+      const value = showPerPage * counter;
+      // console.log("start value:", value - showPerPage);
+      // console.log("end value:", value);
+      onPaginationChange(value - showPerPage, value)
+  },[counter]);
+
+  const onButtonClick = (type) => {
+    if(type === "prev"){
+      if(counter === 1) {
+        setCounter(1)
+      }else{
+        setCounter(counter - 1);
+      }
+
+    }else if(type === "next"){
+        if(Math.ceil(total / showPerPage)=== counter){
+          setCounter(counter)
+        }else{
+          setCounter(counter + 1)
+        }
+    }
+
+  };
+
   return (
-    <>
-       <div className="col-lg-9 col-md-9">
-            <div className="row">
-            <Pagination 
-                count={10} 
-                pagecount={page}
-                color="primary" 
-                onChange={clickHandel}
-                activeclassname={"active"}
-            />
-            </div>
-        </div>
-    </>
+    <div className="d-flex justify-content-between">
+       <button className="btn btn-primary" 
+       onClick={()=>onButtonClick('prev')}>
+        Previous
+        </button>
+
+       <button className="btn btn-primary"
+       onClick={()=>onButtonClick('next')}>
+        Next
+        </button>
+
+    </div>
   )
 }
 
-export default Pagination
+export default Pagination;
