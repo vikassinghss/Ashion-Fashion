@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div>
-
         {/* <!-- Offcanvas Menu Begin --> */}
     <div className="offcanvas-menu-overlay"></div>
     <div className="offcanvas-menu-wrapper">
@@ -43,10 +42,10 @@ const Navbar = () => {
                             <li className="active"><Link to="/">Home</Link></li>
                             <li><Link to="#">Women’s</Link></li>
                             <li><Link to="#">Men’s</Link></li>
-                            <li><Link to="/">Shop</Link></li>
+                            <li className=""><Link to="/Shop">Shop</Link></li>
                             <li><Link to="#">Pages</Link>
                                 <ul className="dropdown">
-                                    <li><Link to="/">Product Details</Link></li>
+                                    {/* <li><Link to="/productdetails">Product Details</Link></li> */}
                                     <li><Link to="/">Shop Cart</Link></li>
                                     <li><Link to="/">Checkout</Link></li>
                                     <li><Link to="/">Blog Details</Link></li>

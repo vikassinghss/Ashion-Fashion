@@ -21,10 +21,14 @@ const RelatedProducts = () => {
 
     {related.map((val)=>{
             return(
+<<<<<<< HEAD
 
 
 
                 <div className="col-lg-3 col-md-4 col-sm-6">
+=======
+            <div className="col-lg-3 col-md-4 col-sm-6" key={val.id}>
+>>>>>>> origin/fashion
                     <div className="product__item">
                      <Link to={`/productdetails/${val.id}`}>  <div className="product__item__pic set-bg"  style={{
                         backgroundImage: `url("${val.image}")`,
@@ -47,7 +51,12 @@ const RelatedProducts = () => {
                             <div className="product__price">$ {val.price}</div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
+=======
+            </div>
+            
+>>>>>>> origin/fashion
             )
         })
     }

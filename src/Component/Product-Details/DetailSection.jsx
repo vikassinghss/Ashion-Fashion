@@ -97,10 +97,17 @@ const DetailSection = () => {
           </div>
           <div className="row">
           <div className="col-lg-12 text-center">
+<<<<<<< HEAD
                     <div className="related__title">
                         <h5>RELATED PRODUCTS</h5>
                     </div>
                 </div>
+=======
+            <div class="related__title">
+                <h5>RELATED PRODUCTS</h5>
+            </div>
+          </div>
+>>>>>>> origin/fashion
             
           <RelatedProducts/>
           </div>

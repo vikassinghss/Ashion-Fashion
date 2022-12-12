@@ -9,7 +9,7 @@ const Latest = (props) => {
         "https://fakestoreapi.com/products?sort=desc"
       );
       let res = await apiData.data;
-      console.log(res);
+      // console.log(res);
       setLatestProduct(res);
     };
     getData();

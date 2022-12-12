@@ -75,38 +75,34 @@ const ProductCategory = () => {
                 key={val.id}
               >
                 <div className="product__item">
-                  <div
-                    className="product__item__pic set-bg"
-                    style={{
-                      backgroundImage: `url("${val.image}")`,
-                    }}
-                    
-                  >
-                    <div className="label new">New</div>
-                    <ul className="product__hover">
-                      <li>
-                        <Link to=""
-                        
-                          className="image-popup"
-                        >
-                          <span
-                            className="arrow_expand"
-                           
-                          ></span>
-                        </Link>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <span className="icon_heart_alt"></span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <span className="icon_bag_alt"></span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                  <Link to={`/productdetails/${val.id}`}>
+                    {" "}
+                    <div
+                      className="product__item__pic set-bg"
+                      style={{
+                        backgroundImage: `url("${val.image}")`,
+                      }}
+                    >
+                      <div className="label new">New</div>
+                      <ul className="product__hover">
+                        <li>
+                          <Link to="" className="image-popup">
+                            <span className="arrow_expand"></span>
+                          </Link>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <span className="icon_heart_alt"></span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            <span className="icon_bag_alt"></span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>{" "}
+                  </Link>
                   <div className="product__item__text">
                     <h6>
                       <a href="#">{val.title}</a>

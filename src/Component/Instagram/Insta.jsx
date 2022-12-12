@@ -16,4 +16,8 @@ export function Insta(props) {
             </div>
         </div>
     );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/fashion

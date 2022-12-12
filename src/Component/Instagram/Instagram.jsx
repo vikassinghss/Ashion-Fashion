@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import  {Insta}  from "./Insta";
+=======
+import { Insta } from "./Insta";
+>>>>>>> origin/fashion
 import insta1 from "../../img/instagram/insta-1.jpg"
 import insta2 from "../../img/instagram/insta-2.jpg"
 import insta3 from "../../img/instagram/insta-3.jpg"
@@ -24,4 +28,8 @@ const Instagram = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Instagram;
+=======
+export default Instagram;
+>>>>>>> origin/fashion
